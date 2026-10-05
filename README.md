@@ -71,15 +71,42 @@ Run `uninstall.bat`. It restores `sms.sh` from the original (either from the loc
 
 ## Compatibility
 
+### QManager versions
+
+| QManager version | Status |
+|---|---|
+| v0.1.16 | ✅ tested |
+| v0.1.13–v0.1.15 | 🟡 likely works, not tested |
+| v0.1.12 and older | 🟠 may need adaptation of `sms.sh` |
+| QuecManager (pre-rename) | 🔴 not supported |
+
+### Firmware
+
 | Firmware | Status |
 |---|---|
 | RM520NGLAAR01A06M4G | ✅ tested |
-| Other RM520N-GL revisions | likely works, not tested |
+| Other RM520N-GL revisions | 🟡 likely works, not tested |
+
+### Tested languages
+
+All confirmed on firmware `RM520NGLAAR01A06M4G` (SDXLEMUR), operator MTS (Russia):
+
+| Language / script | Status |
+|---|---|
+| Cyrillic (`Привет`) | ✅ tested |
+| Greek (`Γειά σου`) | ✅ tested |
+| CJK (`你好`) | ✅ tested |
+| Emoji / non-BMP (`🚀🔥`) | ✅ tested |
+| Mixed (`Hello Привет 你好`) | ✅ tested |
+
+### Assumptions
 
 The patch assumes:
 - `/dev/smd11` exists and is writable (standard for SDXLEMUR-based Quectel).
 - Entware is at `/opt/`.
 - QManager v0.1.16 or newer (uses the same `sms.sh` structure).
+
+For older QManager versions, the `sms.sh` file structure may differ — the patch may require manual adaptation. See [docs/TECHNICAL.md](docs/TECHNICAL.md) for the minimal diff.
 
 ---
 
